@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile tUuUtA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+       
+        :root {
+            --bg-dark: #1D242B;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --border-card: rgba(199, 238, 255, 0.15);
+            --primary-blue: #0077C0;
+            --light-blue: #C7EEFF;
+            --text-light: #FAFAFA;
+            --text-muted: #a0aec0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Navbar Style */
+        .navbar {
+            background-color: rgba(29, 36, 43, 0.95);
+            border-bottom: 1px solid var(--border-card);
+            padding: 15px 0;
+        }
+
+        .brand-badge {
+            background-color: var(--primary-blue);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-left: 8px;
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-size: 0.95rem;
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--light-blue) !important;
+        }
+
+        .btn-challenge {
+            border: 1px solid var(--primary-blue);
+            color: var(--light-blue);
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-challenge:hover {
+            background-color: var(--primary-blue);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .challenge-badge {
+            background-color: rgba(0, 119, 192, 0.25);
+            color: var(--light-blue);
+            border: 1px solid var(--primary-blue);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* Profile Card Styling */
+        .profile-card {
+            background: linear-gradient(180deg, rgba(30, 41, 51, 0.8) 0%, rgba(20, 26, 32, 0.9) 100%);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-top: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card-header-bg {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #004d7d 100%);
+            height: 100px;
+            position: relative;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #2ec4b6;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .avatar-container {
+            position: relative;
+            margin-top: -50px;
+            text-align: center;
+        }
+
+        .avatar-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid var(--bg-dark);
+            object-fit: cover;
+            background-color: #2a343d;
+        }
+
+        .card-body-content {
+            padding: 20px 30px 30px;
+            text-align: center;
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            color: var(--text-light);
+        }
+
+        .profile-role {
+            color: var(--light-blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .profile-bio {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Tech Stack Badges */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .badge-tech {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .badge-tech.active-tech {
+            background-color: var(--primary-blue);
+            color: #fff;
+            border-color: var(--primary-blue);
+        }
+
+        /* Buttons */
+        .btn-action-primary {
+            background-color: var(--primary-blue);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-action-primary:hover {
+            background-color: #005a93;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-action-github {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-action-github:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-color: var(--light-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Section */
+        .card-stats {
+            border-top: 1px solid var(--border-card);
+            padding-top: 20px;
+            margin-top: 25px;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-card);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar atas -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold d-flex align-items-center" href="#">
+                <i class="fa-brands fa-bootstrap me-2 fs-4" style="color: var(--primary-blue);"></i>
+                baim
+                <span class="brand-badge">XII RPL</span>
+            </a>
+            
+            <div class="d-flex align-items-center ms-auto">
+                <a class="nav-link active d-none d-md-inline-block" href="#"><i class="fa-solid fa-house me-1"></i> Beranda</a>
+                <a class="nav-link d-none d-md-inline-block" href="#"><i class="fa-solid fa-code me-1"></i> Portofolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Bagian Navbar Logo Jam -->
+        <div class="hero-section">
+            <div class="challenge-badge">
+                <i class="fa-regular fa-clock me-1"></i> please come back to me
+            </div>
+            <h1 class="hero-title">Profil Junior Developer</h1>
+            <p class="hero-subtitle">
+                Hasil pengerjaan tantangan pembuatan kartu profil responsif menggunakan Grid System & Utility 
+                Classes Bootstrap 5.
+            </p>
+        </div>
+
+        <!-- Profile Card Area -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <div class="profile-card">
+                    <!-- Banner Atas Header -->
+                    <div class="card-header-bg">
+                        <div class="status-badge">
+                            <span class="status-dot"></span> Available for Hire
+                        </div>
+                    </div>
+
+                    <!-- FOTO URANG -->
+                    <div class="avatar-container">
+                    <img src="Lego boy (me).jpeg" alt="Foto Profil" class="avatar-img">
+                    </div>
+
+                    <!-- Body Content -->
+                    <div class="card-body-content">
+                        <!-- Name & Title -->
+                        <h2 class="profile-name">ibrahim nursidik</h2>
+                        <div class="profile-role">Junior Developer</div>
+
+                        <!-- Bio Deksripsi -->
+                        <p class="profile-bio">
+                            Siswa XII RPL yang memiliki fokus pada pengembangan aplikasi web menggunakan Laravel dan Bootstrap, dengan pengalaman membangun aplikasi berbasis web untuk kebutuhan industri.
+
+                        </p>
+
+                        <!-- Badges Bahasanya-->
+                        <div class="tech-stack">
+                            <span class="badge-tech">HTML5</span>
+                            <span class="badge-tech">CSS3</span>
+                            <span class="badge-tech active-tech">Bootstrap 5</span>
+                            <span class="badge-tech">PHP</span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                            <a href="" class="btn-action-primary">
+                                <i class="fa-regular fa-paper-plane me-1"></i> Kontak Saya
+                            </a>
+                            <!-- link GitHub  -->
+                            <a href="" target="_blank" class="btn-action-github">
+                                <i class="fa-brands fa-github me-1"></i> GitHub
+                            </a>
+                        </div>
+
+                        <!-- Stats Footer -->
+                        <div class="card-stats">
+                            <div class="row text-center">
+                                <div class="col-4 border-end border-secondary border-opacity-25">
+                                    <div class="stat-value">5</div>
+                                    <div class="stat-label">PROYEK</div>
+                                </div>
+                                <div class="col-4 border-end border-secondary border-opacity-25">
+                                    <div class="stat-value">80%</div>
+                                    <div class="stat-label">PRESENSI</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="stat-value">4.5 <i class="fa-solid fa-star text-warning fs-6"></i></div>
+                                    <div class="stat-label">RATING</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
